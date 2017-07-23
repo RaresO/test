@@ -4,7 +4,7 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-dev',
+     uri: 'mongodb://kingtsunamy:9z80dS8tRMkI48tlBSw1h4jHOWeldaBtcaI6wbMXAoEiDWgtV27YZHd8QTYywYymYzf2GZuPAbC7AEklQX5Jdg==@kingtsunamy.documents.azure.com:10255/?ssl=true&replicaSet=globaldb', //process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
     options: {
       user: '',
       pass: ''
