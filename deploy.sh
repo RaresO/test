@@ -137,7 +137,7 @@ if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
 
   cd "$DEPLOYMENT_TARGET"
   #eval ./node_modules/.bin/gulp install
-  eval ./node_modules/.bin/gulp imagemin
+  #eval ./node_modules/.bin/gulp imagemin
   
  #cd "$DEPLOYMENT_SOURCE"
  # eval './node_modules/.bin/gulp'
