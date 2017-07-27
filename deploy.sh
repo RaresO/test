@@ -102,7 +102,7 @@ echo Handling node.js deployment.
 
 # 1. KuduSync
 if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh;node_modules" #gulpfile.js" #package
+  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
   exitWithMessageOnError "Kudu Sync failed"
 fi
 
@@ -114,8 +114,6 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install --production
   eval $NPM_CMD install --only=dev
-#    call :ExecuteCmd !NPM_CMD! install gulp
-#  call :ExecuteCmd !NPM_CMD! install
   exitWithMessageOnError "npm failed"
   cd - > /dev/null
 fi
@@ -128,24 +126,13 @@ if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
   cd - > /dev/null
 fi
 
-
 # 5. Run Gulp Task
 if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
-  #  call .\node_modules\.bin\gulp -v   
-  #  call .\node_modules\.bin\gulp clean
-  #  call .\node_modules\.bin\gulp build   
-
   cd "$DEPLOYMENT_TARGET"
-  #eval ./node_modules/.bin/gulp install
-  #eval ./node_modules/.bin/gulp imagemin
-  
- #cd "$DEPLOYMENT_SOURCE"
- # eval './node_modules/.bin/gulp'
-  #  eval ./node_modules/.bin/gulp 
+  eval ./node_modules/.bin/gulp prod
   exitWithMessageOnError "gulp failed"
   cd - > /dev/null
 fi
-
 
 ##################################################################################################################################
 
@@ -158,4 +145,3 @@ if [[ -n "$POST_DEPLOYMENT_ACTION" ]]; then
 fi
 
 echo "Finished successfully."
-
