@@ -28,19 +28,19 @@ module.exports = {
     title: defaultEnvConfig.app.title + ' - Development Environment'
   },
   facebook: {
-    clientID: process.env.FACEBOOK_ID || 'APP_ID',
-    clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+    clientID:'1472263963072093',
+    clientSecret: '65af96bc84083d3704677b673c15943b',
     callbackURL: '/api/auth/facebook/callback'
   },
   twitter: {
-    username: '@TWITTER_USERNAME',
-    clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-    clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+    username: '@TWITTER',
+    clientID:'YBkAB4tO7lfGv2RweX2IvwZMv',
+    clientSecret:  'cXJdnbohRRHydbBWzGhXiWWh48vcnALljeSoddXLNs0L4I3ve6',
     callbackURL: '/api/auth/twitter/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_ID || 'APP_ID',
-    clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+    clientID: 'AIzaSyBI-996141320219-trdq93i261m9oraqcjnnmqe52jqlrj2n.apps.googleusercontent.com',
+    clientSecret: 'nsW2GCCCPZqPjWXtcwhV5xPU',
     callbackURL: '/api/auth/google/callback'
   },
   linkedin: {
